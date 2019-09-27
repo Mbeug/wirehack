@@ -39,7 +39,6 @@
 *::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
-
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -3376,14 +3375,35 @@ input[type="button"].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem; }
+  padding: 0.5rem 1rem;
+}
   .nav-link:hover, .nav-link:focus {
-    text-decoration: none; }
+    text-decoration: none;
+    background: #82ae46;
+  }
   .nav-link.disabled {
     color: #6c757d;
     pointer-events: none;
     cursor: default; }
-
+a.nav-link  {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+a.nav-link.btn.btn-primary {
+  border: 1px solid #82ae46;
+  background: transparent;
+  color: #82ae46;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  margin-top: 1.5rem;
+}
+a.nav-link.btn.btn-primary:hover{
+  background: #82ae46;
+  border: 1px solid #82ae46;
+  color: #fff;
+}
 .nav-tabs {
   border-bottom: 1px solid #dee2e6; }
   .nav-tabs .nav-item {
