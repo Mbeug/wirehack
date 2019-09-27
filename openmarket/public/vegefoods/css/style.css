@@ -8607,6 +8607,11 @@ h1, h2, h3, h4, h5,
   font-size: 18px;
   color: rgba(0, 0, 0, 0.5); }
 
+  .deal-of-the-day .expires {
+    font-weight: 500;
+    font-size: 18px;
+    color: rgba(1, 1, 1, 1); }
+
 #timer {
   width: 80%; }
   @media (max-width: 991.98px) {
@@ -8751,6 +8756,8 @@ h1, h2, h3, h4, h5,
         color: #b3b3b3; }
       .product .text p.price span.price-sale {
         color: #82ae46; }
+      .product .text p.price span.expires {
+        color: #000000; }
     .product .text .pricing {
       width: 100%;
       -moz-transition: all 0.3s ease;
