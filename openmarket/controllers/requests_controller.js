@@ -10,9 +10,11 @@ var condb = mysql.createConnection({
 
 exports.get_all_requests = () => {
     var sql = 'SELECT * FROM requests';
-    condb.query(sql, [], function (err, result) {
-        if (err) throw err;
-        console.log(result);
+    return new Promise(function(resolve,reject){
+        condb.query(sql, [], function (err, result) {
+            if (err) reject(err);
+            resolve(result);
+        });
     });
 };
 
