@@ -8,7 +8,7 @@ var condb = mysql.createConnection({
     database: "openmarket"
 });
 
-exports.get_all_requests = () => {
+exports.get_all_requests = async () => {
     var sql = 'SELECT * FROM requests';
     return new Promise(function(resolve,reject){
         condb.query(sql, [], function (err, result) {
