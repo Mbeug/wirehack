@@ -22,19 +22,38 @@ condb.connect(function(err) {
     if (err) {
       return console.error('error: ' + err.message);
     }
+    // let delrequest = 'DROP TABLE requests';
+    // condb.query(delrequest, function(err, results, fields) {
+    //   if (err) {
+    //     console.log(err.message);
+    //   }else{
+    //     console.log("requests del");
+    //   }
+    // });
     // let del = 'DROP TABLE customers';
     // condb.query(del, function(err, results, fields) {
-    //      if (err) {
-    //        console.log(err.message);
-    //      }else{
-    //        console.log("customer del");
-    //      }
-    //    });
-    // Create customer
+    //   if (err) {
+    //     console.log(err.message);
+    //   }else{
+    //     console.log("customer del");
+    //   }
+    // });
+    // let deltype = 'DROP TABLE types';
+    // condb.query(deltype, function(err, results, fields) {
+    //   if (err) {
+    //     console.log(err.message);
+    //   }else{
+    //     console.log("types del");
+    //   }
+    // });
+    
+    //Create customer
     let customers = ` create table customers(
         customer_id int primary key auto_increment,
         name varchar(255) not null,
         first_name varchar(255) not null,
+        mail varchar(255) not null,
+        password varchar(255) not null,
         address varchar(255) not null
     )`;
     condb.query(customers, function(err, results, fields) {
@@ -45,14 +64,10 @@ condb.connect(function(err) {
       }
     });
 
-    // let deltype = 'DROP TABLE types';
-    // condb.query(deltype, function(err, results, fields) {
-    //      if (err) {
-    //        console.log(err.message);
-    //      }else{
-    //        console.log("types del");
-    //      }
-    //    });
+    // insert create customers
+    create_users();
+
+    
     // Create type
     let types = `create table types(
         type_id int primary key auto_increment,
@@ -65,8 +80,12 @@ condb.connect(function(err) {
         console.log("type create");
         }
     });
-
+    // insert type
+      create_types();
     // Create request
+
+   
+
     let requests = `create table requests(
         request_id int primary key auto_increment,
         name varchar(255) not null,
@@ -90,3 +109,49 @@ condb.connect(function(err) {
       }
     });
   });
+
+  function create_users(){
+    var customer_1 = "INSERT INTO customers (name,first_name,mail,password,address) VALUES ('Doe','John','john.doe@gmail.com','starwars','Avenue Jule bordet 13 Evere')";
+    condb.query(customer_1, function(err, results, fields) {
+      if (err) {
+        console.log(err.message);
+      }else{
+        console.log("customer 1 insert");
+      }
+    });
+    var customer_2 = "INSERT INTO customers (name,first_name,mail,password,address) VALUES ('Vador','Dark','dark.vador@gmail.com','starwars','Avenue Jule bordet 42 Evere')";
+    condb.query(customer_2, function(err, results, fields) {
+      if (err) {
+        console.log(err.message);
+      }else{
+        console.log("customer 2 insert");
+      }
+    });
+  }
+
+  function create_types(){
+    var type_1 = "INSERT INTO types(name) VALUES ('Légumes')";
+    condb.query(type_1, function(err, results, fields) {
+      if (err) {
+        console.log(err.message);
+      }else{
+        console.log("type 1 insert");
+      }
+    });
+    var type_2 = "INSERT INTO types (name) VALUES ('Fruits')";
+    condb.query(type_2, function(err, results, fields) {
+      if (err) {
+        console.log(err.message);
+      }else{
+        console.log("type 2 insert");
+      }
+    });
+    var type_3 = "INSERT INTO types (name) VALUES ('Produit laitier')";
+    condb.query(type_3, function(err, results, fields) {
+      if (err) {
+        console.log(err.message);
+      }else{
+        console.log("type 3 insert");
+      }
+    });
+  }
