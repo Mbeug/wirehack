@@ -8,12 +8,21 @@ var condb = mysql.createConnection({
     database: "openmarket"
 });
 
-exports.sign_up = (data) => {
+exports.sign_in = (data) => {
     var sql = 'SELECT * FROM customers WHERE email = ? AND password = ?';
     con.query(sql, [email, password], function (err, result) {
-        if (err) throw err;
+        if (err) return false;
         console.log(result);
+        return true;
     });
 };
 
+exports.sign_up = (data) => {
+    var sql = 'INSERT INTO customers (name,first_name,email,password,address) VALUES (?, ?, ?, ?, ?)';
+    con.query(sql, [data.name, data.first_name, data.email, data.password, data.address], function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        // return ok if insertion worked
+    });
+};
 
