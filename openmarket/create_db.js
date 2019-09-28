@@ -101,12 +101,13 @@ condb.connect(function(err) {
         console.log("request create");
       }
     });
+    create_requests();
     condb.end(function(err) {
       if (err) {
         return console.log(err.message);
       }
     });
-    create_requests();
+    
 
   });
 
