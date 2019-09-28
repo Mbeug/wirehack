@@ -9,13 +9,13 @@ var user_controller = require('../controllers/users_controller');
 //   res.send('respond with a resource');
 // });
 
-router.post('/users/create', function (req, res) {
+router.post('/create', function (req, res) {
   //Create new user
   //req.body.name
   user_controller.sign_up({
     'last_name': req.body.last_name,
     'first_name': req.body.first_name,
-    'email': req.body.email,
+    'mail': req.body.mail,
     'password': req.body.password,
     'address': req.body.address
   });
@@ -24,15 +24,16 @@ router.post('/users/create', function (req, res) {
   //res.send('respond with a resource');
 });
 
-router.post('/users/signin', function (req, res) {
+router.post('/signin', function (req, res) {
   //Sign in
-  response = user_controller.sign_in({
-    'email': req.body.email,
+  ok = user_controller.sign_in({
+    'mail': req.body.mail,
     'password': req.body.password
   });
 
-  if (!response) {
-    res.render('users/signin', { error: 'Invalid username/password' })
+  console.log(ok)
+  if (!ok) {
+    res.render('signin', { error: 'Invalid username/password' })
   } else {
     // make second request to get all products
     res.render('index', { title: 'Express' });
@@ -40,11 +41,11 @@ router.post('/users/signin', function (req, res) {
   //res.send('respond with a resource');
 });
 
-router.get('/users/signin', function (req, res) {
+router.get('/signin', function (req, res) {
   res.render('signin');
 });
 
-router.get('/users/signup', function (req, res) {
+router.get('/signup', function (req, res) {
   res.render('signup');
 });
 

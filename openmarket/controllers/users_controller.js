@@ -8,9 +8,9 @@ var condb = mysql.createConnection({
     database: "openmarket"
 });
 
-exports.sign_in = (data) => {
-    var sql = 'SELECT * FROM customers WHERE email = ? AND password = ?';
-    con.query(sql, [email, password], function (err, result) {
+exports.sign_in = async function (data){
+    var sql = 'SELECT * FROM customers WHERE mail = ? AND password = ?';
+    await condb.query(sql, [data.mail, data.password], function (err, result) {
         if (err) return false;
         console.log(result);
         return true;
@@ -18,8 +18,8 @@ exports.sign_in = (data) => {
 };
 
 exports.sign_up = (data) => {
-    var sql = 'INSERT INTO customers (name,first_name,email,password,address) VALUES (?, ?, ?, ?, ?)';
-    con.query(sql, [data.name, data.first_name, data.email, data.password, data.address], function (err, result) {
+    var sql = 'INSERT INTO customers (name,first_name,mail,password,address) VALUES (?, ?, ?, ?, ?)';
+    condb.query(sql, [data.last_name, data.first_name, data.mail, data.password, data.address], function (err, result) {
         if (err) throw err;
         console.log(result);
         // return ok if insertion worked
