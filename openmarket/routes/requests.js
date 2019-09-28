@@ -26,6 +26,10 @@ router.get('/product', function(req, res) {
   res.render('create_product');
 });
 
+router.get('/reserve/:id', function(req, res) {
+  requests_controller.reserve_request(req.params.id)
+  res.redirect('/')
+});
 
 router.post('/create', function(req, res) {
   //(request_id, name, peremption_date, customer_id, price, type_id)
