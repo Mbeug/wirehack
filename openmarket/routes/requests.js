@@ -3,11 +3,18 @@ var router = express.Router();
 var requests_controller = require('../controllers/requests_controller');
 
 /* GET requests listing. */
-router.get('/', function(req, res) {
-  var requests = requests_controller.get_all_requests();
-  res.render('index', { 'products': requests });
-  //TODO select only useful cols
-});
+// router.get('/', function(req, res) {
+//   var requests = requests_controller.get_all_requests();
+//   console.log(requests);
+//   requests.forEach(element => {
+//     console.log("element:",element)
+//     // console.log(element.peremption_date);
+//     // element.peremption_date = moment(element.peremption_date).format('Do MMMM, YYYY');
+//     // console.log(element.peremption_date);
+//   });
+//   res.render('index', { 'products': requests });
+//   //TODO select only useful cols
+// });
 
 // router.get('/:id', function(req, res) {
   // var request = requests_controller.get_one_requests(req.params.id);
