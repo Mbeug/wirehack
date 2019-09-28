@@ -159,7 +159,7 @@ condb.connect(function(err) {
   }
 
   function create_requests(){
-    var request_1 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('pommes', '2019-09-30', 1, 2, 2, 'des pommes', false);"
+    var request_1 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('peppers', '2019-09-30', 1, 2, 2, 'des pommes', false);"
     condb.query(request_1, function(err, results, fields) {
       if (err) {
         console.log(err.message);
@@ -168,7 +168,7 @@ condb.connect(function(err) {
       }
     });
 
-    var request_2 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('pommes de terre', '2019-01-05', 1, 5, 1, 'des pdt', false);"
+    var request_2 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('strawberries', '2019-10-05', 1, 5, 1, 'des poivrons', false);"
     condb.query(request_2, function(err, results, fields) {
       if (err) {
         console.log(err.message);
@@ -177,7 +177,7 @@ condb.connect(function(err) {
       }
     });
 
-    var request_3 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('yaourt', '2019-09-29', 1, 2.50, 3, '6 yaourts', false);"
+    var request_3 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('tomatoes', '2019-10-06', 1, 2.50, 3, 'fraises', false);"
     condb.query(request_3, function(err, results, fields) {
       if (err) {
         console.log(err.message);

@@ -3431,6 +3431,7 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  border-radius: 10px;
 }
   .nav-link:hover, .nav-link:focus {
     text-decoration: none;
@@ -8590,11 +8591,11 @@ h1, h2, h3, h4, h5,
   .btn.btn-primary {
     background: #82ae46;
     border: 1px solid #82ae46;
-    color: #fff; }
+    color: #fff!important; }
     .btn.btn-primary:hover {
       border: 1px solid #82ae46;
       background: transparent;
-      color: #82ae46; }
+      color: #82ae46!important; }
     .btn.btn-primary.btn-outline-primary {
       border: 1px solid #82ae46;
       background: transparent;

@@ -41,7 +41,7 @@ router.post('/create', function(req, res) {
     'type_id': req.body.type_id,
     'description': req.body.description
   });
-  res.redirect('/');
+  res.redirect('/shop');
 });
 
 

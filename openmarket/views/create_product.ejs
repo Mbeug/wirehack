@@ -64,15 +64,15 @@
       <div class="login-page">
         <div class="form">
           <form class="register-form" action="/requests/create" method ="post">
-            <input type="text" placeholder="name" name="name"/>
+            <input type="text" placeholder="Product name" name="name"/>
             <input type="date" id="today" name="peremption_date"/>
             <script type="text/javascript">
               document.querySelector("#today").valueAsDate = new Date();
             </script>
             <input type="text" placeholder="customer id" name="customer_id" value = 2 hidden/>
-            <input type="number" step=0.01 min=0 placeholder="price" name="price" />
+            <input type="number" step=0.01 min=0 placeholder="Price (€)" name="price" />
             <input type="text" placeholder="type id" name="type_id" value = 1 hidden/>
-            <input type="text" placeholder="description" name="description"/>
+            <input type="text" placeholder="Description" name="description"/>
             <button>Add</button>
           </form>
         </div>
