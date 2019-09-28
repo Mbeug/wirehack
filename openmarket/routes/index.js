@@ -12,7 +12,7 @@ router.get('/',  function(req, res, next) {
       element.peremption_date = moment(element.peremption_date).format('Do MMMM YYYY');
     });
     res.render('index',{
-       products: data 
+       products: data
       }); 
     }).catch(function(err){
       console.log("error",err)
