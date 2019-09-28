@@ -3388,21 +3388,21 @@ input[type="button"].btn-block {
 a.nav-link  {
   padding-top: 0!important;
   padding-bottom: 0!important;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem!important;
+  margin-bottom: 1.5rem!important;
 }
 a.nav-link.btn.btn-primary {
-  border: 1px solid #82ae46;
-  background: transparent;
-  color: #82ae46;
+  border: 1px solid #82ae46!important;
+  background: transparent!important;
+  color: #82ae46!important;
   padding-top: 0!important;
   padding-bottom: 0!important;
-  margin-top: 1.5rem;
+  margin-top: 1.5rem!important;
 }
 a.nav-link.btn.btn-primary:hover{
-  background: #82ae46;
-  border: 1px solid #82ae46;
-  color: #fff;
+  background: #82ae46!important;
+  border: 1px solid #82ae46!important;
+  color: #fff!important;
 }
 .nav-tabs {
   border-bottom: 1px solid #dee2e6; }
@@ -8206,23 +8206,22 @@ h1, h2, h3, h4, h5,
       font-size: 16px;
       letter-spacing: .1em; }
     .ftco-navbar-light.scrolled .nav-link {
-      padding-top: 0.9rem !important;
-      padding-bottom: 0.9rem !important;
+      padding-top: 0rem !important;
+      padding-bottom: 0rem !important;
       color: #000000 !important; }
       .ftco-navbar-light.scrolled .nav-link.active {
         color: #82ae46 !important; }
     .ftco-navbar-light.scrolled.awake {
       margin-top: 0px;
-      -webkit-transition: .3s all ease-out;
-      -o-transition: .3s all ease-out;
-      transition: .3s all ease-out; }
+      -webkit-transition: .1s all ease-out;
+      -o-transition: .1s all ease-out;
+      transition: .1s all ease-out; }
     .ftco-navbar-light.scrolled.sleep {
       -webkit-transition: .3s all ease-out;
       -o-transition: .3s all ease-out;
       transition: .3s all ease-out; }
     .ftco-navbar-light.scrolled .navbar-brand {
       color: #000000; }
-
 .navbar-brand {
   font-weight: 800;
   font-size: 20px;
