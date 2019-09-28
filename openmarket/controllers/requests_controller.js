@@ -9,7 +9,7 @@ var condb = mysql.createConnection({
 });
 
 exports.get_all_requests = async () => {
-    var sql = 'SELECT * FROM requests';
+    var sql = 'SELECT * FROM requests WHERE sold is false';
     return new Promise(function(resolve,reject){
         condb.query(sql, [], function (err, result) {
             if (err) reject(err);
@@ -28,8 +28,16 @@ exports.get_one_requests = (id) => {
 
 exports.create_request = (data) => {
     console.log(data);
-    var sql = 'INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description) VALUES (?, ?, ?, ?, ?, ?)';
-    condb.query(sql, [data.name, data.peremption_date, data.customer_id, data.price, data.type_id, data.description], function (err, result) {
+    var sql = 'INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    condb.query(sql, [data.name, data.peremption_date, data.customer_id, data.price, data.type_id, data.description, false], function (err, result) {
+        if (err) throw err;
+        console.log(result);
+    });
+}
+
+exports.reserve_request = (id) => {
+    var sql = 'UPDATE requests SET sold = true WHERE request_id=?';
+    condb.query(sql, [id], function (err, result) {
         if (err) throw err;
         console.log(result);
     });

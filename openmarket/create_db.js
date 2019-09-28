@@ -91,6 +91,7 @@ condb.connect(function(err) {
         price float not null,
         type_id int not null,
         description varchar(255) not null,
+        sold boolean not null,
         foreign key (customer_id) references customers(customer_id) on delete cascade,
         foreign key (type_id) references types(type_id) on delete cascade
     )`;
@@ -158,7 +159,7 @@ condb.connect(function(err) {
   }
 
   function create_requests(){
-    var request_1 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description) VALUES ('pommes', '2019-09-30', 1, 2, 2, 'des pommes');"
+    var request_1 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('pommes', '2019-09-30', 1, 2, 2, 'des pommes', false);"
     condb.query(request_1, function(err, results, fields) {
       if (err) {
         console.log(err.message);
@@ -167,7 +168,7 @@ condb.connect(function(err) {
       }
     });
 
-    var request_2 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description) VALUES ('pommes de terre', '2019-01-05', 1, 5, 1, 'des pdt');"
+    var request_2 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('pommes de terre', '2019-01-05', 1, 5, 1, 'des pdt', false);"
     condb.query(request_2, function(err, results, fields) {
       if (err) {
         console.log(err.message);
@@ -176,7 +177,7 @@ condb.connect(function(err) {
       }
     });
 
-    var request_3 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description) VALUES ('yaourt', '2019-09-29', 1, 2.50, 3, '6 yaourts');"
+    var request_3 = "INSERT INTO requests (name, peremption_date, customer_id, price, type_id, description, sold) VALUES ('yaourt', '2019-09-29', 1, 2.50, 3, '6 yaourts', false);"
     condb.query(request_3, function(err, results, fields) {
       if (err) {
         console.log(err.message);
