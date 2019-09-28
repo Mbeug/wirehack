@@ -34,8 +34,9 @@ router.post('/signin', function (req, res) {
   ok.then((data)=>{
     console.log(data)
     console.log("ok")
+    // localStorage.setItem("connected", true);
     // make second request to get all products
-    res.redirect('/');
+    res.render('index', { connected: true });
   }).catch((data)=>{
     console.log(data)
     console.log("nok")
