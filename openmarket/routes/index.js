@@ -7,5 +7,10 @@ router.get('/', function(req, res, next) {
   var requests = requests_controller.get_all_requests();
   requests.then(function(data){ console.log(data); res.render('index',{ 'products': data.RowDataPacket }); }).catch(function(err){console.log(err)});
 });
-
+router.get('/about', function(req, res, next) {
+  res.render('about',{});
+});
+router.get('/contact', function(req, res, next) {
+  res.render('contact',{});
+});
 module.exports = router;
