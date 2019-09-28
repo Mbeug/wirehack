@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var user_controller = require('../controllers/user');
+var user_controller = require('../controllers/users_controller');
 
 /* GET users listing. */
 // router.get('/users/:userId', function (req, res) {
@@ -24,15 +24,28 @@ router.post('/users/create', function (req, res) {
   //res.send('respond with a resource');
 });
 
-router.post('/users', function (req, res) {
+router.post('/users/signin', function (req, res) {
   //Sign in
-  user_controller.sign_in({
+  response = user_controller.sign_in({
     'email': req.body.email,
     'password': req.body.password
   });
 
-  res.render('index', { title: 'Express' });
+  if (!response) {
+    res.render('users/signin', { error: 'Invalid username/password' })
+  } else {
+    // make second request to get all products
+    res.render('index', { title: 'Express' });
+  }
   //res.send('respond with a resource');
+});
+
+router.get('/users/signin', function (req, res) {
+  res.render('signin');
+});
+
+router.get('/users/signup', function (req, res) {
+  res.render('signup');
 });
 
 module.exports = router;
