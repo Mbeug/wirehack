@@ -60,9 +60,9 @@
     <section class="ftco-section" style="background:#82ae46;">
       <div class="login-page">
         <div class="form">
-          <form class="login-form">
-            <input type="text" placeholder="login"/>
-            <input type="password" placeholder="password"/>
+          <form class="login-form" method="POST" action="/users/signin">
+            <input type="text" placeholder="email" name="mail"/>
+            <input type="password" placeholder="password" name="password"/>
             <button>login</button>
             <p class="message">Not registered? <a href="/users/signup">Create an account</a></p>
           </form>

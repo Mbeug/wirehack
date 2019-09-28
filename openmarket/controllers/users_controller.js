@@ -10,10 +10,12 @@ var condb = mysql.createConnection({
 
 exports.sign_in = async function (data){
     var sql = 'SELECT * FROM customers WHERE mail = ? AND password = ?';
-    await condb.query(sql, [data.mail, data.password], function (err, result) {
-        if (err) return false;
-        console.log(result);
-        return true;
+    return new Promise(function(resolve,reject){
+        condb.query(sql, [data.mail, data.password], function (err, result) {
+            console.log(result);
+            if (Array.isArray(result) && result.length) resolve(true);
+            reject(false);
+        });
     });
 };
 

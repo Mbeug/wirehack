@@ -31,14 +31,17 @@ router.post('/signin', function (req, res) {
     'password': req.body.password
   });
 
-  console.log(ok)
-  if (!ok) {
-    res.render('signin', { error: 'Invalid username/password' })
-  } else {
+  ok.then((data)=>{
+    console.log(data)
+    console.log("ok")
     // make second request to get all products
-    res.render('index', { title: 'Express' });
-  }
-  //res.send('respond with a resource');
+    res.redirect('/');
+  }).catch((data)=>{
+    console.log(data)
+    console.log("nok")
+    res.render('signin', { error: 'Invalid username/password' })
+  })
+
 });
 
 router.get('/signin', function (req, res) {
